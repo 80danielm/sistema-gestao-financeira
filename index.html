@@ -855,7 +855,7 @@
                 <label class="form-label">Password:</label>
                 <input type="password" class="form-input" id="password" value="admin123" required>
             </div>
-            <button type="submit" class="login-btn">
+            <button type="submit" class="login-btn" id="loginButton" onclick="login()">
                 <i class="fas fa-sign-in-alt"></i> Login
             </button>
             <p style="text-align: center; margin-top: 1rem; color: #7f8c8d; font-size: 0.9rem;">
@@ -1051,14 +1051,14 @@
                             </tr>
                         </thead>
                         <tbody id="customersTableBody">
-                            <!-- Table content will be populated by JavaScript -->
+                            <!-- Table content populated by JavaScript -->
                         </tbody>
                     </table>
                 </div>
 
                 <!-- Mobile Cards (hidden on desktop) -->
                 <div class="mobile-cards" id="customersMobileCards">
-                    <!-- Mobile cards will be populated by JavaScript -->
+                    <!-- Mobile cards populated by JavaScript -->
                 </div>
 
                 <!-- Customers Summary -->
@@ -1207,7 +1207,7 @@
                     type: 'business',
                     companyName: 'ABC Technology Corp',
                     contactName: 'John Smith',
-                    taxId: '12-3456789', // EIN format
+                    taxId: '12-3456789',
                     email: 'john.smith@abctech.com',
                     phone: '(555) 123-4567',
                     address: {
@@ -1227,7 +1227,7 @@
                     type: 'individual',
                     firstName: 'Sarah',
                     lastName: 'Johnson',
-                    taxId: '123-45-6789', // SSN format
+                    taxId: '123-45-6789',
                     email: 'sarah.johnson@email.com',
                     phone: '(555) 987-6543',
                     address: {
@@ -1247,7 +1247,7 @@
                     type: 'business',
                     companyName: 'XYZ Manufacturing LLC',
                     contactName: 'Michael Brown',
-                    taxId: '98-7654321', // EIN format
+                    taxId: '98-7654321',
                     email: 'mbrown@xyzmanufacturing.com',
                     phone: '(555) 456-7890',
                     address: {
@@ -1267,7 +1267,7 @@
                     type: 'individual',
                     firstName: 'Emily',
                     lastName: 'Davis',
-                    taxId: '987-65-4321', // SSN format
+                    taxId: '987-65-4321',
                     email: 'emily.davis@email.com',
                     phone: '(555) 321-0987',
                     address: {
@@ -1287,7 +1287,7 @@
                     type: 'business',
                     companyName: 'Global Services Inc',
                     contactName: 'Robert Wilson',
-                    taxId: '56-7890123', // EIN format
+                    taxId: '56-7890123',
                     email: 'rwilson@globalservices.com',
                     phone: '(555) 678-9012',
                     address: {
@@ -1317,18 +1317,43 @@
         document.addEventListener('DOMContentLoaded', function() {
             loadData();
             initializeEventListeners();
-            updateDashboard();
+            
+            const savedUser = isLocalStorageAvailable() ? localStorage.getItem('currentUser') : null;
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                showMainApp();
+            }
         });
 
         // Event Listeners
         function initializeEventListeners() {
-            // Login form
-            document.getElementById('loginForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                login();
-            });
+            const loginForm = document.getElementById('loginForm');
+            const loginButton = document.getElementById('loginButton');
+            
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    login();
+                });
+            }
+            
+            if (loginButton) {
+                loginButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    login();
+                });
+            }
 
-            // Navigation
+            const passwordField = document.getElementById('password');
+            if (passwordField) {
+                passwordField.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        login();
+                    }
+                });
+            }
+
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1336,27 +1361,60 @@
                     showPage(page);
                 });
             });
+
+            window.addEventListener('click', function(event) {
+                const modal = document.getElementById('customerModal');
+                if (event.target === modal) {
+                    closeCustomerModal();
+                }
+            });
         }
 
         // Authentication
         function login() {
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+            console.log('Login function called');
+            
+            const emailField = document.getElementById('email');
+            const passwordField = document.getElementById('password');
+            
+            if (!emailField || !passwordField) {
+                alert('Error: Login fields not found');
+                return;
+            }
+            
+            const email = emailField.value;
+            const password = passwordField.value;
 
-            // Simple demo authentication
+            console.log('Login attempt:', email);
+
             if (email === 'admin@company.com' && password === 'admin123') {
                 currentUser = { name: 'Admin User', email: email };
-                document.getElementById('loginPage').classList.add('hidden');
-                document.getElementById('mainApp').classList.remove('hidden');
-                document.getElementById('userName').textContent = currentUser.name;
-                updateDashboard();
+                
+                if (isLocalStorageAvailable()) {
+                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                }
+                
+                showMainApp();
             } else {
                 alert('Invalid credentials. Use: admin@company.com / admin123');
             }
         }
 
+        function showMainApp() {
+            document.getElementById('loginPage').classList.add('hidden');
+            document.getElementById('mainApp').classList.remove('hidden');
+            document.getElementById('userName').textContent = currentUser.name;
+            updateDashboard();
+        }
+
         function logout() {
             currentUser = null;
+            
+            // Clear saved user
+            if (isLocalStorageAvailable()) {
+                localStorage.removeItem('currentUser');
+            }
+            
             document.getElementById('loginPage').classList.remove('hidden');
             document.getElementById('mainApp').classList.add('hidden');
         }
@@ -1404,27 +1462,31 @@
             
             filteredCustomers.forEach(customer => {
                 const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>
-                        <div style="font-weight: bold;">${getCustomerDisplayName(customer)}</div>
-                        <div style="font-size: 0.85rem; color: #7f8c8d;">${formatAddress(customer.address)}</div>
-                    </td>
-                    <td><span class="type-badge type-${customer.type}">${customer.type}</span></td>
-                    <td>${customer.taxId}</td>
-                    <td>${customer.email}</td>
-                    <td>${formatPhone(customer.phone)}</td>
-                    <td><span class="status-badge status-${customer.status}">${customer.status}</span></td>
-                    <td>
-                        <div class="action-buttons">
-                            <button class="btn btn-sm btn-primary" onclick="editCustomer(${customer.id})">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                            <button class="btn btn-sm btn-secondary" onclick="viewCustomer(${customer.id})">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </div>
-                    </td>
-                `;
+                
+                const nameCell = '<div style="font-weight: bold;">' + getCustomerDisplayName(customer) + '</div>' +
+                                '<div style="font-size: 0.85rem; color: #7f8c8d;">' + formatAddress(customer.address) + '</div>';
+                
+                const typeCell = '<span class="type-badge type-' + customer.type + '">' + customer.type + '</span>';
+                
+                const statusCell = '<span class="status-badge status-' + customer.status + '">' + customer.status + '</span>';
+                
+                const actionsCell = '<div class="action-buttons">' +
+                                   '<button class="btn btn-sm btn-primary" onclick="editCustomer(' + customer.id + ')">' +
+                                   '<i class="fas fa-edit"></i>' +
+                                   '</button>' +
+                                   '<button class="btn btn-sm btn-secondary" onclick="viewCustomer(' + customer.id + ')">' +
+                                   '<i class="fas fa-eye"></i>' +
+                                   '</button>' +
+                                   '</div>';
+                
+                row.innerHTML = '<td>' + nameCell + '</td>' +
+                               '<td>' + typeCell + '</td>' +
+                               '<td>' + customer.taxId + '</td>' +
+                               '<td>' + customer.email + '</td>' +
+                               '<td>' + formatPhone(customer.phone) + '</td>' +
+                               '<td>' + statusCell + '</td>' +
+                               '<td>' + actionsCell + '</td>';
+                               
                 tbody.appendChild(row);
             });
         }
@@ -1440,40 +1502,41 @@
             filteredCustomers.forEach(customer => {
                 const card = document.createElement('div');
                 card.className = 'mobile-card';
-                card.innerHTML = `
-                    <div class="mobile-card-header">
-                        <div class="mobile-card-title">${getCustomerDisplayName(customer)}</div>
-                        <span class="status-badge status-${customer.status}">${customer.status}</span>
-                    </div>
-                    <div class="mobile-card-body">
-                        <div class="mobile-card-field">
-                            <div class="mobile-card-label">Type</div>
-                            <div class="mobile-card-value">
-                                <span class="type-badge type-${customer.type}">${customer.type}</span>
-                            </div>
-                        </div>
-                        <div class="mobile-card-field">
-                            <div class="mobile-card-label">Tax ID</div>
-                            <div class="mobile-card-value">${customer.taxId}</div>
-                        </div>
-                        <div class="mobile-card-field">
-                            <div class="mobile-card-label">Email</div>
-                            <div class="mobile-card-value">${customer.email}</div>
-                        </div>
-                        <div class="mobile-card-field">
-                            <div class="mobile-card-label">Phone</div>
-                            <div class="mobile-card-value">${formatPhone(customer.phone)}</div>
-                        </div>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="btn btn-sm btn-primary" onclick="editCustomer(${customer.id})">
-                            <i class="fas fa-edit"></i> Edit
-                        </button>
-                        <button class="btn btn-sm btn-secondary" onclick="viewCustomer(${customer.id})">
-                            <i class="fas fa-eye"></i> View
-                        </button>
-                    </div>
-                `;
+                
+                const header = '<div class="mobile-card-header">' +
+                              '<div class="mobile-card-title">' + getCustomerDisplayName(customer) + '</div>' +
+                              '<span class="status-badge status-' + customer.status + '">' + customer.status + '</span>' +
+                              '</div>';
+                
+                const body = '<div class="mobile-card-body">' +
+                            '<div class="mobile-card-field">' +
+                            '<div class="mobile-card-label">Type</div>' +
+                            '<div class="mobile-card-value">' +
+                            '<span class="type-badge type-' + customer.type + '">' + customer.type + '</span>' +
+                            '</div></div>' +
+                            '<div class="mobile-card-field">' +
+                            '<div class="mobile-card-label">Tax ID</div>' +
+                            '<div class="mobile-card-value">' + customer.taxId + '</div>' +
+                            '</div>' +
+                            '<div class="mobile-card-field">' +
+                            '<div class="mobile-card-label">Email</div>' +
+                            '<div class="mobile-card-value">' + customer.email + '</div>' +
+                            '</div>' +
+                            '<div class="mobile-card-field">' +
+                            '<div class="mobile-card-label">Phone</div>' +
+                            '<div class="mobile-card-value">' + formatPhone(customer.phone) + '</div>' +
+                            '</div></div>';
+                
+                const actions = '<div class="action-buttons">' +
+                               '<button class="btn btn-sm btn-primary" onclick="editCustomer(' + customer.id + ')">' +
+                               '<i class="fas fa-edit"></i> Edit' +
+                               '</button>' +
+                               '<button class="btn btn-sm btn-secondary" onclick="viewCustomer(' + customer.id + ')">' +
+                               '<i class="fas fa-eye"></i> View' +
+                               '</button>' +
+                               '</div>';
+                
+                card.innerHTML = header + body + actions;
                 container.appendChild(card);
             });
         }
@@ -1541,13 +1604,13 @@
         }
 
         function editCustomer(customerId) {
-            alert(`Edit customer functionality coming in BLOCO 2B! Customer ID: ${customerId}`);
+            alert('Edit customer functionality coming in BLOCO 2B! Customer ID: ' + customerId);
         }
 
         function viewCustomer(customerId) {
             const customer = appData.customers.find(c => c.id === customerId);
             if (customer) {
-                alert(`Customer Details:\n\nName: ${getCustomerDisplayName(customer)}\nEmail: ${customer.email}\nPhone: ${customer.phone}\nStatus: ${customer.status}\n\nFull customer details coming in BLOCO 2B!`);
+                alert('Customer Details:\n\nName: ' + getCustomerDisplayName(customer) + '\nEmail: ' + customer.email + '\nPhone: ' + customer.phone + '\nStatus: ' + customer.status + '\n\nFull customer details coming in BLOCO 2B!');
             }
         }
 
@@ -1750,7 +1813,6 @@
                 }
             }
             
-            // Load settings into form
             if (document.getElementById('companyName')) {
                 document.getElementById('companyName').value = appData.settings.companyName;
                 document.getElementById('currency').value = appData.settings.currency;
@@ -1762,7 +1824,6 @@
             if (isLocalStorageAvailable()) {
                 localStorage.setItem('financialSystemData', JSON.stringify(appData));
             }
-            // In demo mode, data persists only during session
         }
 
         // Export/Import Functions (for future use)
@@ -1808,12 +1869,10 @@
         }
 
         function formatDate(date) {
-            // US format: MM/DD/YYYY
             return new Date(date).toLocaleDateString('en-US');
         }
 
         function formatPhone(phone) {
-            // US format: (XXX) XXX-XXXX
             const cleaned = phone.replace(/\D/g, '');
             const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
             if (match) {
@@ -2031,10 +2090,57 @@
             // In demo mode, data persists only during session
         }
 
-        // Utility Functions
         function formatCurrency(amount) {
             const currency = appData.settings.currency || 'USD';
-            const symbol = currency === 'USD' ? '$' : currency === 'EUR' ? '€' : '£';
+            const symbol = currency === 'USD' ? '
+
+        function formatDate(date) {
+            // US format: MM/DD/YYYY
+            return new Date(date).toLocaleDateString('en-US');
+        }
+
+        function formatPhone(phone) {
+            // US format: (XXX) XXX-XXXX
+            const cleaned = phone.replace(/\D/g, '');
+            const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+            if (match) {
+                return '(' + match[1] + ') ' + match[2] + '-' + match[3];
+            }
+            return phone;
+        }
+
+        // Export/Import Functions (for future use)
+        function exportData() {
+            const dataStr = JSON.stringify(appData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'financial_system_backup.json';
+            link.click();
+        }
+
+        function importData(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        appData = JSON.parse(e.target.result);
+                        saveData();
+                        alert('Data imported successfully!');
+                        updateDashboard();
+                    } catch (error) {
+                        alert('Error importing data: ' + error.message);
+                    }
+                };
+                reader.readAsText(file);
+            }
+        }
+    </script>
+</body>
+</html> : currency === 'EUR' ? '€' : '£';
             
             return symbol + Math.abs(amount).toLocaleString('en-US', {
                 minimumFractionDigits: 2,
