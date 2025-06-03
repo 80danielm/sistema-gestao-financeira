@@ -13,12 +13,6 @@
             box-sizing: border-box;
         }
 
-        /* Utility Classes */
-        .text-center { text-align: center; }
-        .mb-1 { margin-bottom: 1rem; }
-        .mb-2 { margin-bottom: 2rem; }
-        .hidden { display: none; }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -173,270 +167,6 @@
             opacity: 0.9;
         }
 
-        /* Charts Section */
-        .charts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .chart-container {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .chart-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        /* Quick Actions */
-        .quick-actions {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            margin: 2rem 0;
-        }
-
-        .quick-actions h3 {
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-
-        .actions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .action-btn {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            border: none;
-            padding: 1.5rem;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-
-        .action-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
-        }
-
-        .action-btn i {
-            font-size: 2rem;
-        }
-
-        /* Recent Activity */
-        .recent-activity {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .recent-activity h3 {
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-
-        .activity-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            border-bottom: 1px solid #ecf0f1;
-            transition: background 0.3s;
-        }
-
-        .activity-item:hover {
-            background: #f8f9fa;
-        }
-
-        .activity-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        .activity-icon.income {
-            background: #27ae60;
-        }
-
-        .activity-icon.expense {
-            background: #e74c3c;
-        }
-
-        .activity-info {
-            flex: 1;
-        }
-
-        .activity-title {
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        .activity-date {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-        }
-
-        .activity-amount {
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .activity-amount.positive {
-            color: #27ae60;
-        }
-
-        .activity-amount.negative {
-            color: #e74c3c;
-        }
-
-        /* Login Page */
-        .login-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .login-form {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 400px;
-        }
-
-        .login-title {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 2rem;
-            font-size: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-            font-weight: bold;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #ecf0f1;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #3498db;
-        }
-
-        .login-btn {
-            width: 100%;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            border: none;
-            padding: 1rem;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .login-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .header {
-                padding: 1rem;
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav-menu {
-                padding: 0 1rem;
-            }
-
-            .nav-link {
-                padding: 0.8rem 1rem;
-                font-size: 0.9rem;
-            }
-
-            .main-content {
-                padding: 1rem;
-            }
-
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .charts-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .stat-card {
-                padding: 1.5rem;
-            }
-
-            .stat-value {
-                font-size: 2rem;
-            }
-
-            .chart-container {
-                padding: 1rem;
-            }
-
-            .actions-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
-
-            .action-btn {
-                padding: 1rem;
-            }
-
-            .login-form {
-                margin: 1rem;
-                padding: 2rem;
-            }
-        }
-
         /* Page Header */
         .page-header {
             display: flex;
@@ -474,24 +204,14 @@
             box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
         }
 
-        .btn-secondary {
-            background: #95a5a6;
-            color: white;
-        }
-
-        .btn-success {
-            background: #27ae60;
-            color: white;
-        }
-
-        .btn-danger {
-            background: #e74c3c;
-            color: white;
-        }
-
         .btn-sm {
             padding: 6px 12px;
             font-size: 0.875rem;
+        }
+
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
         }
 
         /* Filters */
@@ -723,60 +443,70 @@
             margin-top: 0.25rem;
         }
 
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 2% auto;
-            padding: 0;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 600px;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .modal-header {
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid #ecf0f1;
+        /* Login Page */
+        .login-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .login-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-title {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ecf0f1;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .login-btn {
+            width: 100%;
             background: linear-gradient(135deg, #3498db, #2980b9);
             color: white;
-            border-radius: 15px 15px 0 0;
-        }
-
-        .modal-header h3 {
-            margin: 0;
-            font-size: 1.3rem;
-        }
-
-        .close {
-            color: white;
-            font-size: 2rem;
-            font-weight: bold;
+            border: none;
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
             cursor: pointer;
-            line-height: 1;
+            transition: transform 0.3s;
         }
 
-        .close:hover {
-            opacity: 0.7;
-        }
-
-        .modal-body {
-            padding: 2rem;
+        .login-btn:hover {
+            transform: translateY(-2px);
         }
 
         /* Action Buttons */
@@ -785,8 +515,203 @@
             gap: 0.5rem;
         }
 
+        /* Charts Section */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .chart-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+
+        .quick-actions h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        .action-btn i {
+            font-size: 2rem;
+        }
+
+        /* Recent Activity */
+        .recent-activity {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .recent-activity h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid #ecf0f1;
+            transition: background 0.3s;
+        }
+
+        .activity-item:hover {
+            background: #f8f9fa;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .activity-icon.income {
+            background: #27ae60;
+        }
+
+        .activity-icon.expense {
+            background: #e74c3c;
+        }
+
+        .activity-info {
+            flex: 1;
+        }
+
+        .activity-title {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .activity-date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .activity-amount {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .activity-amount.positive {
+            color: #27ae60;
+        }
+
+        .activity-amount.negative {
+            color: #e74c3c;
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-menu {
+                padding: 0 1rem;
+            }
+
+            .nav-link {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .charts-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .stat-card {
+                padding: 1.5rem;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+
+            .chart-container {
+                padding: 1rem;
+            }
+
+            .actions-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .action-btn {
+                padding: 1rem;
+            }
+
+            .login-form {
+                margin: 1rem;
+                padding: 2rem;
+            }
+
             .page-header {
                 flex-direction: column;
                 gap: 1rem;
@@ -823,20 +748,13 @@
             .filters-container {
                 grid-template-columns: 1fr;
             }
-
-            .modal-content {
-                width: 95%;
-                margin: 5% auto;
-            }
-
-            .modal-header {
-                padding: 1rem;
-            }
-
-            .modal-body {
-                padding: 1rem;
-            }
         }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mb-1 { margin-bottom: 1rem; }
+        .mb-2 { margin-bottom: 2rem; }
+        .hidden { display: none; }
     </style>
 </head>
 <body>
@@ -855,7 +773,7 @@
                 <label class="form-label">Password:</label>
                 <input type="password" class="form-input" id="password" value="admin123" required>
             </div>
-            <button type="submit" class="login-btn" id="loginButton" onclick="login()">
+            <button type="button" class="login-btn" onclick="doLogin()">
                 <i class="fas fa-sign-in-alt"></i> Login
             </button>
             <p style="text-align: center; margin-top: 1rem; color: #7f8c8d; font-size: 0.9rem;">
@@ -874,7 +792,7 @@
             </div>
             <div class="user-info">
                 <span>Welcome, <strong id="userName">Admin User</strong></span>
-                <button class="logout-btn" onclick="logout()">
+                <button class="logout-btn" onclick="doLogout()">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </button>
             </div>
@@ -884,37 +802,37 @@
         <nav class="nav-container">
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active" data-page="dashboard">
+                    <a href="#" class="nav-link active" onclick="showPage('dashboard')">
                         <i class="fas fa-tachometer-alt"></i> Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link" data-page="customers">
+                    <a href="#" class="nav-link" onclick="showPage('customers')">
                         <i class="fas fa-users"></i> Customers
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link" data-page="invoices">
+                    <a href="#" class="nav-link" onclick="showPage('invoices')">
                         <i class="fas fa-file-invoice-dollar"></i> Invoices
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link" data-page="expenses">
+                    <a href="#" class="nav-link" onclick="showPage('expenses')">
                         <i class="fas fa-receipt"></i> Expenses
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link" data-page="cashflow">
+                    <a href="#" class="nav-link" onclick="showPage('cashflow')">
                         <i class="fas fa-chart-area"></i> Cash Flow
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link" data-page="reports">
+                    <a href="#" class="nav-link" onclick="showPage('reports')">
                         <i class="fas fa-chart-bar"></i> Reports
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link" data-page="settings">
+                    <a href="#" class="nav-link" onclick="showPage('settings')">
                         <i class="fas fa-cog"></i> Settings
                     </a>
                 </li>
@@ -931,28 +849,28 @@
                         <div class="stat-icon">
                             <i class="fas fa-wallet"></i>
                         </div>
-                        <div class="stat-value" id="currentBalance">$0.00</div>
+                        <div class="stat-value">$15,750.50</div>
                         <div class="stat-label">Current Balance</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon">
                             <i class="fas fa-arrow-up"></i>
                         </div>
-                        <div class="stat-value" id="monthlyIncome">$0.00</div>
+                        <div class="stat-value">$8,500.00</div>
                         <div class="stat-label">Monthly Income</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon">
                             <i class="fas fa-arrow-down"></i>
                         </div>
-                        <div class="stat-value" id="monthlyExpenses">$0.00</div>
+                        <div class="stat-value">$6,200.00</div>
                         <div class="stat-label">Monthly Expenses</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
-                        <div class="stat-value" id="netIncome">$0.00</div>
+                        <div class="stat-value">$2,300.00</div>
                         <div class="stat-label">Net Income</div>
                     </div>
                 </div>
@@ -996,18 +914,47 @@
                 <div class="recent-activity">
                     <h3>Recent Activity</h3>
                     <div id="recentActivities">
-                        <!-- Activities will be populated by JavaScript -->
+                        <div class="activity-item">
+                            <div class="activity-icon income">
+                                <i class="fas fa-arrow-up"></i>
+                            </div>
+                            <div class="activity-info">
+                                <div class="activity-title">Payment Received - ABC Corp</div>
+                                <div class="activity-date">06/01/2025</div>
+                            </div>
+                            <div class="activity-amount positive">$2,500.00</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon expense">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            <div class="activity-info">
+                                <div class="activity-title">Office Rent Payment</div>
+                                <div class="activity-date">05/31/2025</div>
+                            </div>
+                            <div class="activity-amount negative">$2,500.00</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon income">
+                                <i class="fas fa-arrow-up"></i>
+                            </div>
+                            <div class="activity-info">
+                                <div class="activity-title">Invoice #1024 - XYZ LLC</div>
+                                <div class="activity-date">05/30/2025</div>
+                            </div>
+                            <div class="activity-amount positive">$1,800.00</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Other Pages (Placeholders for now) -->
+            <!-- Customers Page -->
             <div id="customersPage" class="page">
                 <div class="page-header">
                     <h2 style="color: #2c3e50; margin-bottom: 1rem;">
                         <i class="fas fa-users"></i> Customer Management
                     </h2>
-                    <button class="btn btn-primary" onclick="openCustomerModal()">
+                    <button class="btn btn-primary" onclick="alert('Customer form coming in BLOCO 2B!')">
                         <i class="fas fa-plus"></i> Add New Customer
                     </button>
                 </div>
@@ -1051,24 +998,22 @@
                             </tr>
                         </thead>
                         <tbody id="customersTableBody">
-                            <!-- Table content populated by JavaScript -->
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Mobile Cards (hidden on desktop) -->
+                <!-- Mobile Cards -->
                 <div class="mobile-cards" id="customersMobileCards">
-                    <!-- Mobile cards populated by JavaScript -->
                 </div>
 
-                <!-- Customers Summary -->
+                <!-- Summary Cards -->
                 <div class="summary-cards">
                     <div class="summary-card">
                         <div class="summary-icon">
                             <i class="fas fa-users"></i>
                         </div>
                         <div class="summary-info">
-                            <div class="summary-value" id="totalCustomers">0</div>
+                            <div class="summary-value" id="totalCustomers">5</div>
                             <div class="summary-label">Total Customers</div>
                         </div>
                     </div>
@@ -1077,7 +1022,7 @@
                             <i class="fas fa-user-check"></i>
                         </div>
                         <div class="summary-info">
-                            <div class="summary-value" id="activeCustomers">0</div>
+                            <div class="summary-value" id="activeCustomers">4</div>
                             <div class="summary-label">Active Customers</div>
                         </div>
                     </div>
@@ -1086,7 +1031,7 @@
                             <i class="fas fa-building"></i>
                         </div>
                         <div class="summary-info">
-                            <div class="summary-value" id="businessCustomers">0</div>
+                            <div class="summary-value" id="businessCustomers">3</div>
                             <div class="summary-label">Businesses</div>
                         </div>
                     </div>
@@ -1095,30 +1040,14 @@
                             <i class="fas fa-user"></i>
                         </div>
                         <div class="summary-info">
-                            <div class="summary-value" id="individualCustomers">0</div>
+                            <div class="summary-value" id="individualCustomers">2</div>
                             <div class="summary-label">Individuals</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Customer Modal (placeholder for BLOCO 2B) -->
-                <div id="customerModal" class="modal">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3>Add New Customer</h3>
-                            <span class="close" onclick="closeCustomerModal()">&times;</span>
-                        </div>
-                        <div class="modal-body">
-                            <div style="text-align: center; padding: 3rem;">
-                                <i class="fas fa-tools" style="font-size: 3rem; color: #3498db; margin-bottom: 1rem;"></i>
-                                <h4 style="color: #2c3e50; margin-bottom: 1rem;">Coming in BLOCO 2B</h4>
-                                <p style="color: #7f8c8d;">Customer form will be available in the next update!</p>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Other Pages -->
             <div id="invoicesPage" class="page">
                 <h2 style="color: #2c3e50; margin-bottom: 2rem;">
                     <i class="fas fa-file-invoice-dollar"></i> Invoice Management
@@ -1189,7 +1118,7 @@
                             <option value="10">October</option>
                         </select>
                     </div>
-                    <button class="login-btn" onclick="saveSettings()">
+                    <button class="login-btn" onclick="alert('Settings saved!')">
                         <i class="fas fa-save"></i> Save Settings
                     </button>
                 </div>
@@ -1198,286 +1127,229 @@
     </div>
 
     <script>
-        // Application State
-        let currentUser = null;
-        let appData = {
-            customers: [
-                {
-                    id: 1,
-                    type: 'business',
-                    companyName: 'ABC Technology Corp',
-                    contactName: 'John Smith',
-                    taxId: '12-3456789',
-                    email: 'john.smith@abctech.com',
-                    phone: '(555) 123-4567',
-                    address: {
-                        line1: '123 Main Street',
-                        line2: 'Suite 100',
-                        city: 'New York',
-                        state: 'NY',
-                        zipCode: '10001'
-                    },
-                    status: 'active',
-                    creditLimit: 50000,
-                    paymentTerms: 'Net 30',
-                    createdDate: '2024-01-15'
+        // Sample customer data
+        var customers = [
+            {
+                id: 1,
+                type: 'business',
+                companyName: 'ABC Technology Corp',
+                contactName: 'John Smith',
+                taxId: '12-3456789',
+                email: 'john.smith@abctech.com',
+                phone: '(555) 123-4567',
+                address: {
+                    line1: '123 Main Street',
+                    line2: 'Suite 100',
+                    city: 'New York',
+                    state: 'NY',
+                    zipCode: '10001'
                 },
-                {
-                    id: 2,
-                    type: 'individual',
-                    firstName: 'Sarah',
-                    lastName: 'Johnson',
-                    taxId: '123-45-6789',
-                    email: 'sarah.johnson@email.com',
-                    phone: '(555) 987-6543',
-                    address: {
-                        line1: '456 Oak Avenue',
-                        line2: 'Apt 2B',
-                        city: 'Los Angeles',
-                        state: 'CA',
-                        zipCode: '90210'
-                    },
-                    status: 'active',
-                    creditLimit: 10000,
-                    paymentTerms: 'Net 15',
-                    createdDate: '2024-02-20'
+                status: 'active'
+            },
+            {
+                id: 2,
+                type: 'individual',
+                firstName: 'Sarah',
+                lastName: 'Johnson',
+                taxId: '123-45-6789',
+                email: 'sarah.johnson@email.com',
+                phone: '(555) 987-6543',
+                address: {
+                    line1: '456 Oak Avenue',
+                    line2: 'Apt 2B',
+                    city: 'Los Angeles',
+                    state: 'CA',
+                    zipCode: '90210'
                 },
-                {
-                    id: 3,
-                    type: 'business',
-                    companyName: 'XYZ Manufacturing LLC',
-                    contactName: 'Michael Brown',
-                    taxId: '98-7654321',
-                    email: 'mbrown@xyzmanufacturing.com',
-                    phone: '(555) 456-7890',
-                    address: {
-                        line1: '789 Industrial Blvd',
-                        line2: '',
-                        city: 'Chicago',
-                        state: 'IL',
-                        zipCode: '60601'
-                    },
-                    status: 'active',
-                    creditLimit: 75000,
-                    paymentTerms: 'Net 45',
-                    createdDate: '2024-01-08'
+                status: 'active'
+            },
+            {
+                id: 3,
+                type: 'business',
+                companyName: 'XYZ Manufacturing LLC',
+                contactName: 'Michael Brown',
+                taxId: '98-7654321',
+                email: 'mbrown@xyzmanufacturing.com',
+                phone: '(555) 456-7890',
+                address: {
+                    line1: '789 Industrial Blvd',
+                    line2: '',
+                    city: 'Chicago',
+                    state: 'IL',
+                    zipCode: '60601'
                 },
-                {
-                    id: 4,
-                    type: 'individual',
-                    firstName: 'Emily',
-                    lastName: 'Davis',
-                    taxId: '987-65-4321',
-                    email: 'emily.davis@email.com',
-                    phone: '(555) 321-0987',
-                    address: {
-                        line1: '321 Pine Street',
-                        line2: '',
-                        city: 'Miami',
-                        state: 'FL',
-                        zipCode: '33101'
-                    },
-                    status: 'inactive',
-                    creditLimit: 5000,
-                    paymentTerms: 'Net 15',
-                    createdDate: '2023-11-12'
+                status: 'active'
+            },
+            {
+                id: 4,
+                type: 'individual',
+                firstName: 'Emily',
+                lastName: 'Davis',
+                taxId: '987-65-4321',
+                email: 'emily.davis@email.com',
+                phone: '(555) 321-0987',
+                address: {
+                    line1: '321 Pine Street',
+                    line2: '',
+                    city: 'Miami',
+                    state: 'FL',
+                    zipCode: '33101'
                 },
-                {
-                    id: 5,
-                    type: 'business',
-                    companyName: 'Global Services Inc',
-                    contactName: 'Robert Wilson',
-                    taxId: '56-7890123',
-                    email: 'rwilson@globalservices.com',
-                    phone: '(555) 678-9012',
-                    address: {
-                        line1: '654 Business Park Dr',
-                        line2: 'Building C',
-                        city: 'Dallas',
-                        state: 'TX',
-                        zipCode: '75201'
-                    },
-                    status: 'active',
-                    creditLimit: 100000,
-                    paymentTerms: 'Net 30',
-                    createdDate: '2024-03-05'
-                }
-            ],
-            invoices: [],
-            expenses: [],
-            cashFlow: [],
-            settings: {
-                companyName: 'Your Company Name',
-                currency: 'USD',
-                fiscalYear: '01'
+                status: 'inactive'
+            },
+            {
+                id: 5,
+                type: 'business',
+                companyName: 'Global Services Inc',
+                contactName: 'Robert Wilson',
+                taxId: '56-7890123',
+                email: 'rwilson@globalservices.com',
+                phone: '(555) 678-9012',
+                address: {
+                    line1: '654 Business Park Dr',
+                    line2: 'Building C',
+                    city: 'Dallas',
+                    state: 'TX',
+                    zipCode: '75201'
+                },
+                status: 'active'
             }
-        };
+        ];
 
-        // Initialize Application
-        document.addEventListener('DOMContentLoaded', function() {
-            loadData();
-            initializeEventListeners();
-            
-            const savedUser = isLocalStorageAvailable() ? localStorage.getItem('currentUser') : null;
-            if (savedUser) {
-                currentUser = JSON.parse(savedUser);
-                showMainApp();
-            }
-        });
-
-        // Event Listeners
-        function initializeEventListeners() {
-            const loginForm = document.getElementById('loginForm');
-            const loginButton = document.getElementById('loginButton');
-            
-            if (loginForm) {
-                loginForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    login();
-                });
-            }
-            
-            if (loginButton) {
-                loginButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    login();
-                });
-            }
-
-            const passwordField = document.getElementById('password');
-            if (passwordField) {
-                passwordField.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        login();
-                    }
-                });
-            }
-
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const page = this.getAttribute('data-page');
-                    showPage(page);
-                });
-            });
-
-            window.addEventListener('click', function(event) {
-                const modal = document.getElementById('customerModal');
-                if (event.target === modal) {
-                    closeCustomerModal();
-                }
-            });
-        }
-
-        // Authentication
-        function login() {
-            console.log('Login function called');
-            
-            const emailField = document.getElementById('email');
-            const passwordField = document.getElementById('password');
-            
-            if (!emailField || !passwordField) {
-                alert('Error: Login fields not found');
-                return;
-            }
-            
-            const email = emailField.value;
-            const password = passwordField.value;
-
-            console.log('Login attempt:', email);
+        // Login function
+        function doLogin() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
 
             if (email === 'admin@company.com' && password === 'admin123') {
-                currentUser = { name: 'Admin User', email: email };
-                
-                if (isLocalStorageAvailable()) {
-                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
-                }
-                
-                showMainApp();
+                document.getElementById('loginPage').classList.add('hidden');
+                document.getElementById('mainApp').classList.remove('hidden');
+                initializeCharts();
+                renderCustomersTable();
+                renderCustomersMobile();
             } else {
                 alert('Invalid credentials. Use: admin@company.com / admin123');
             }
         }
 
-        function showMainApp() {
-            document.getElementById('loginPage').classList.add('hidden');
-            document.getElementById('mainApp').classList.remove('hidden');
-            document.getElementById('userName').textContent = currentUser.name;
-            updateDashboard();
-        }
-
-        function logout() {
-            currentUser = null;
-            
-            // Clear saved user
-            if (isLocalStorageAvailable()) {
-                localStorage.removeItem('currentUser');
-            }
-            
+        // Logout function
+        function doLogout() {
             document.getElementById('loginPage').classList.remove('hidden');
             document.getElementById('mainApp').classList.add('hidden');
         }
 
-        // Navigation
+        // Show page function
         function showPage(pageName) {
             // Hide all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
+            var pages = document.querySelectorAll('.page');
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].classList.remove('active');
+            }
 
             // Remove active class from nav links
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
+            var navLinks = document.querySelectorAll('.nav-link');
+            for (var i = 0; i < navLinks.length; i++) {
+                navLinks[i].classList.remove('active');
+            }
 
             // Show selected page
             document.getElementById(pageName + 'Page').classList.add('active');
 
             // Add active class to current nav link
-            document.querySelector(`[data-page="${pageName}"]`).classList.add('active');
+            var currentLink = document.querySelector('a[onclick*="' + pageName + '"]');
+            if (currentLink) {
+                currentLink.classList.add('active');
+            }
 
             // Update page-specific content
-            if (pageName === 'dashboard') {
-                updateDashboard();
-            } else if (pageName === 'customers') {
-                updateCustomersPage();
+            if (pageName === 'customers') {
+                renderCustomersTable();
+                renderCustomersMobile();
             }
         }
 
-        // Customer Management Functions
-        function updateCustomersPage() {
-            renderCustomersTable();
-            renderCustomersMobile();
-            updateCustomersSummary();
+        // Get customer display name
+        function getCustomerDisplayName(customer) {
+            if (customer.type === 'business') {
+                return customer.companyName;
+            } else {
+                return customer.firstName + ' ' + customer.lastName;
+            }
         }
 
+        // Format address
+        function formatAddress(address) {
+            var parts = [address.city, address.state];
+            return parts.filter(Boolean).join(', ');
+        }
+
+        // Format phone
+        function formatPhone(phone) {
+            return phone;
+        }
+
+        // Get filtered customers
+        function getFilteredCustomers() {
+            var filteredCustomers = customers;
+            
+            var searchTerm = document.getElementById('customerSearch') ? document.getElementById('customerSearch').value.toLowerCase() : '';
+            var typeFilter = document.getElementById('customerTypeFilter') ? document.getElementById('customerTypeFilter').value : '';
+            var statusFilter = document.getElementById('customerStatusFilter') ? document.getElementById('customerStatusFilter').value : '';
+            
+            if (searchTerm) {
+                filteredCustomers = filteredCustomers.filter(function(customer) {
+                    return getCustomerDisplayName(customer).toLowerCase().indexOf(searchTerm) !== -1 ||
+                           customer.email.toLowerCase().indexOf(searchTerm) !== -1 ||
+                           customer.taxId.toLowerCase().indexOf(searchTerm) !== -1;
+                });
+            }
+            
+            if (typeFilter) {
+                filteredCustomers = filteredCustomers.filter(function(customer) {
+                    return customer.type === typeFilter;
+                });
+            }
+            
+            if (statusFilter) {
+                filteredCustomers = filteredCustomers.filter(function(customer) {
+                    return customer.status === statusFilter;
+                });
+            }
+            
+            return filteredCustomers;
+        }
+
+        // Filter customers
+        function filterCustomers() {
+            renderCustomersTable();
+            renderCustomersMobile();
+        }
+
+        // Render customers table
         function renderCustomersTable() {
-            const tbody = document.getElementById('customersTableBody');
+            var tbody = document.getElementById('customersTableBody');
             if (!tbody) return;
 
-            let filteredCustomers = getFilteredCustomers();
-            
+            var filteredCustomers = getFilteredCustomers();
             tbody.innerHTML = '';
             
-            filteredCustomers.forEach(customer => {
-                const row = document.createElement('tr');
+            for (var i = 0; i < filteredCustomers.length; i++) {
+                var customer = filteredCustomers[i];
+                var row = document.createElement('tr');
                 
-                const nameCell = '<div style="font-weight: bold;">' + getCustomerDisplayName(customer) + '</div>' +
-                                '<div style="font-size: 0.85rem; color: #7f8c8d;">' + formatAddress(customer.address) + '</div>';
+                var nameCell = '<div style="font-weight: bold;">' + getCustomerDisplayName(customer) + '</div>' +
+                              '<div style="font-size: 0.85rem; color: #7f8c8d;">' + formatAddress(customer.address) + '</div>';
                 
-                const typeCell = '<span class="type-badge type-' + customer.type + '">' + customer.type + '</span>';
-                
-                const statusCell = '<span class="status-badge status-' + customer.status + '">' + customer.status + '</span>';
-                
-                const actionsCell = '<div class="action-buttons">' +
-                                   '<button class="btn btn-sm btn-primary" onclick="editCustomer(' + customer.id + ')">' +
-                                   '<i class="fas fa-edit"></i>' +
-                                   '</button>' +
-                                   '<button class="btn btn-sm btn-secondary" onclick="viewCustomer(' + customer.id + ')">' +
-                                   '<i class="fas fa-eye"></i>' +
-                                   '</button>' +
-                                   '</div>';
+                var typeCell = '<span class="type-badge type-' + customer.type + '">' + customer.type + '</span>';
+                var statusCell = '<span class="status-badge status-' + customer.status + '">' + customer.status + '</span>';
+                var actionsCell = '<div class="action-buttons">' +
+                                 '<button class="btn btn-sm btn-primary" onclick="editCustomer(' + customer.id + ')">' +
+                                 '<i class="fas fa-edit"></i>' +
+                                 '</button>' +
+                                 '<button class="btn btn-sm btn-secondary" onclick="viewCustomer(' + customer.id + ')">' +
+                                 '<i class="fas fa-eye"></i>' +
+                                 '</button>' +
+                                 '</div>';
                 
                 row.innerHTML = '<td>' + nameCell + '</td>' +
                                '<td>' + typeCell + '</td>' +
@@ -1488,177 +1360,84 @@
                                '<td>' + actionsCell + '</td>';
                                
                 tbody.appendChild(row);
-            });
+            }
         }
 
+        // Render customers mobile
         function renderCustomersMobile() {
-            const container = document.getElementById('customersMobileCards');
+            var container = document.getElementById('customersMobileCards');
             if (!container) return;
 
-            let filteredCustomers = getFilteredCustomers();
-            
+            var filteredCustomers = getFilteredCustomers();
             container.innerHTML = '';
             
-            filteredCustomers.forEach(customer => {
-                const card = document.createElement('div');
+            for (var i = 0; i < filteredCustomers.length; i++) {
+                var customer = filteredCustomers[i];
+                var card = document.createElement('div');
                 card.className = 'mobile-card';
                 
-                const header = '<div class="mobile-card-header">' +
-                              '<div class="mobile-card-title">' + getCustomerDisplayName(customer) + '</div>' +
-                              '<span class="status-badge status-' + customer.status + '">' + customer.status + '</span>' +
-                              '</div>';
+                var header = '<div class="mobile-card-header">' +
+                            '<div class="mobile-card-title">' + getCustomerDisplayName(customer) + '</div>' +
+                            '<span class="status-badge status-' + customer.status + '">' + customer.status + '</span>' +
+                            '</div>';
                 
-                const body = '<div class="mobile-card-body">' +
-                            '<div class="mobile-card-field">' +
-                            '<div class="mobile-card-label">Type</div>' +
-                            '<div class="mobile-card-value">' +
-                            '<span class="type-badge type-' + customer.type + '">' + customer.type + '</span>' +
-                            '</div></div>' +
-                            '<div class="mobile-card-field">' +
-                            '<div class="mobile-card-label">Tax ID</div>' +
-                            '<div class="mobile-card-value">' + customer.taxId + '</div>' +
-                            '</div>' +
-                            '<div class="mobile-card-field">' +
-                            '<div class="mobile-card-label">Email</div>' +
-                            '<div class="mobile-card-value">' + customer.email + '</div>' +
-                            '</div>' +
-                            '<div class="mobile-card-field">' +
-                            '<div class="mobile-card-label">Phone</div>' +
-                            '<div class="mobile-card-value">' + formatPhone(customer.phone) + '</div>' +
-                            '</div></div>';
+                var body = '<div class="mobile-card-body">' +
+                          '<div class="mobile-card-field">' +
+                          '<div class="mobile-card-label">Type</div>' +
+                          '<div class="mobile-card-value">' +
+                          '<span class="type-badge type-' + customer.type + '">' + customer.type + '</span>' +
+                          '</div></div>' +
+                          '<div class="mobile-card-field">' +
+                          '<div class="mobile-card-label">Tax ID</div>' +
+                          '<div class="mobile-card-value">' + customer.taxId + '</div>' +
+                          '</div>' +
+                          '<div class="mobile-card-field">' +
+                          '<div class="mobile-card-label">Email</div>' +
+                          '<div class="mobile-card-value">' + customer.email + '</div>' +
+                          '</div>' +
+                          '<div class="mobile-card-field">' +
+                          '<div class="mobile-card-label">Phone</div>' +
+                          '<div class="mobile-card-value">' + formatPhone(customer.phone) + '</div>' +
+                          '</div></div>';
                 
-                const actions = '<div class="action-buttons">' +
-                               '<button class="btn btn-sm btn-primary" onclick="editCustomer(' + customer.id + ')">' +
-                               '<i class="fas fa-edit"></i> Edit' +
-                               '</button>' +
-                               '<button class="btn btn-sm btn-secondary" onclick="viewCustomer(' + customer.id + ')">' +
-                               '<i class="fas fa-eye"></i> View' +
-                               '</button>' +
-                               '</div>';
+                var actions = '<div class="action-buttons">' +
+                             '<button class="btn btn-sm btn-primary" onclick="editCustomer(' + customer.id + ')">' +
+                             '<i class="fas fa-edit"></i> Edit' +
+                             '</button>' +
+                             '<button class="btn btn-sm btn-secondary" onclick="viewCustomer(' + customer.id + ')">' +
+                             '<i class="fas fa-eye"></i> View' +
+                             '</button>' +
+                             '</div>';
                 
                 card.innerHTML = header + body + actions;
                 container.appendChild(card);
-            });
-        }
-
-        function getFilteredCustomers() {
-            let customers = appData.customers;
-            
-            const searchTerm = document.getElementById('customerSearch')?.value.toLowerCase() || '';
-            const typeFilter = document.getElementById('customerTypeFilter')?.value || '';
-            const statusFilter = document.getElementById('customerStatusFilter')?.value || '';
-            
-            if (searchTerm) {
-                customers = customers.filter(customer => 
-                    getCustomerDisplayName(customer).toLowerCase().includes(searchTerm) ||
-                    customer.email.toLowerCase().includes(searchTerm) ||
-                    customer.taxId.toLowerCase().includes(searchTerm)
-                );
-            }
-            
-            if (typeFilter) {
-                customers = customers.filter(customer => customer.type === typeFilter);
-            }
-            
-            if (statusFilter) {
-                customers = customers.filter(customer => customer.status === statusFilter);
-            }
-            
-            return customers;
-        }
-
-        function filterCustomers() {
-            renderCustomersTable();
-            renderCustomersMobile();
-        }
-
-        function updateCustomersSummary() {
-            const customers = appData.customers;
-            
-            document.getElementById('totalCustomers').textContent = customers.length;
-            document.getElementById('activeCustomers').textContent = customers.filter(c => c.status === 'active').length;
-            document.getElementById('businessCustomers').textContent = customers.filter(c => c.type === 'business').length;
-            document.getElementById('individualCustomers').textContent = customers.filter(c => c.type === 'individual').length;
-        }
-
-        function getCustomerDisplayName(customer) {
-            if (customer.type === 'business') {
-                return customer.companyName;
-            } else {
-                return `${customer.firstName} ${customer.lastName}`;
             }
         }
 
-        function formatAddress(address) {
-            const parts = [address.city, address.state];
-            return parts.filter(Boolean).join(', ');
-        }
-
-        // Customer Modal Functions (placeholders for BLOCO 2B)
-        function openCustomerModal() {
-            document.getElementById('customerModal').style.display = 'block';
-        }
-
-        function closeCustomerModal() {
-            document.getElementById('customerModal').style.display = 'none';
-        }
-
+        // Edit customer
         function editCustomer(customerId) {
             alert('Edit customer functionality coming in BLOCO 2B! Customer ID: ' + customerId);
         }
 
+        // View customer
         function viewCustomer(customerId) {
-            const customer = appData.customers.find(c => c.id === customerId);
+            var customer = null;
+            for (var i = 0; i < customers.length; i++) {
+                if (customers[i].id === customerId) {
+                    customer = customers[i];
+                    break;
+                }
+            }
+            
             if (customer) {
                 alert('Customer Details:\n\nName: ' + getCustomerDisplayName(customer) + '\nEmail: ' + customer.email + '\nPhone: ' + customer.phone + '\nStatus: ' + customer.status + '\n\nFull customer details coming in BLOCO 2B!');
             }
         }
 
-        // Utility Functions
-        function formatCurrency(amount) {
-            const currency = appData.settings.currency || 'USD';
-            const symbol = currency === 'USD' ? '
-        }
-
-        // Dashboard Functions
-        function updateDashboard() {
-            // Calculate financial metrics
-            const currentBalance = calculateCurrentBalance();
-            const monthlyIncome = calculateMonthlyIncome();
-            const monthlyExpenses = calculateMonthlyExpenses();
-            const netIncome = monthlyIncome - monthlyExpenses;
-
-            // Update stat cards
-            document.getElementById('currentBalance').textContent = formatCurrency(currentBalance);
-            document.getElementById('monthlyIncome').textContent = formatCurrency(monthlyIncome);
-            document.getElementById('monthlyExpenses').textContent = formatCurrency(monthlyExpenses);
-            document.getElementById('netIncome').textContent = formatCurrency(netIncome);
-
-            // Update charts
-            updateCharts();
-
-            // Update recent activities
-            updateRecentActivities();
-        }
-
-        function calculateCurrentBalance() {
-            // Demo calculation - replace with real data
-            return 15750.50;
-        }
-
-        function calculateMonthlyIncome() {
-            // Demo calculation - replace with real data
-            return 8500.00;
-        }
-
-        function calculateMonthlyExpenses() {
-            // Demo calculation - replace with real data
-            return 6200.00;
-        }
-
-        function updateCharts() {
+        // Initialize charts
+        function initializeCharts() {
             // Revenue vs Expenses Chart
-            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            var revenueCtx = document.getElementById('revenueChart').getContext('2d');
             new Chart(revenueCtx, {
                 type: 'line',
                 data: {
@@ -1698,7 +1477,7 @@
             });
 
             // Expense Categories Chart
-            const expenseCtx = document.getElementById('expenseChart').getContext('2d');
+            var expenseCtx = document.getElementById('expenseChart').getContext('2d');
             new Chart(expenseCtx, {
                 type: 'doughnut',
                 data: {
@@ -1723,474 +1502,6 @@
                     }
                 }
             });
-        }
-
-        function updateRecentActivities() {
-            const activities = [
-                {
-                    type: 'income',
-                    title: 'Payment Received - ABC Corp',
-                    date: '06/01/2025',
-                    amount: 2500.00
-                },
-                {
-                    type: 'expense',
-                    title: 'Office Rent Payment',
-                    date: '05/31/2025',
-                    amount: -2500.00
-                },
-                {
-                    type: 'income',
-                    title: 'Invoice #1024 - XYZ LLC',
-                    date: '05/30/2025',
-                    amount: 1800.00
-                },
-                {
-                    type: 'expense',
-                    title: 'Utility Bill',
-                    date: '05/29/2025',
-                    amount: -350.00
-                },
-                {
-                    type: 'income',
-                    title: 'Consulting Services',
-                    date: '05/28/2025',
-                    amount: 1200.00
-                }
-            ];
-
-            const container = document.getElementById('recentActivities');
-            container.innerHTML = '';
-
-            activities.forEach(activity => {
-                const activityDiv = document.createElement('div');
-                activityDiv.className = 'activity-item';
-                
-                activityDiv.innerHTML = `
-                    <div class="activity-icon ${activity.type}">
-                        <i class="fas fa-${activity.type === 'income' ? 'arrow-up' : 'arrow-down'}"></i>
-                    </div>
-                    <div class="activity-info">
-                        <div class="activity-title">${activity.title}</div>
-                        <div class="activity-date">${activity.date}</div>
-                    </div>
-                    <div class="activity-amount ${activity.amount > 0 ? 'positive' : 'negative'}">
-                        ${formatCurrency(Math.abs(activity.amount))}
-                    </div>
-                `;
-                
-                container.appendChild(activityDiv);
-            });
-        }
-
-        // Settings
-        function saveSettings() {
-            appData.settings.companyName = document.getElementById('companyName').value;
-            appData.settings.currency = document.getElementById('currency').value;
-            appData.settings.fiscalYear = document.getElementById('fiscalYear').value;
-            
-            saveData();
-            alert('Settings saved successfully!');
-        }
-
-        // Data Management with fallback
-        function isLocalStorageAvailable() {
-            try {
-                const test = '__localStorage_test__';
-                localStorage.setItem(test, test);
-                localStorage.removeItem(test);
-                return true;
-            } catch(e) {
-                return false;
-            }
-        }
-
-        function loadData() {
-            if (isLocalStorageAvailable()) {
-                const saved = localStorage.getItem('financialSystemData');
-                if (saved) {
-                    appData = JSON.parse(saved);
-                }
-            }
-            
-            if (document.getElementById('companyName')) {
-                document.getElementById('companyName').value = appData.settings.companyName;
-                document.getElementById('currency').value = appData.settings.currency;
-                document.getElementById('fiscalYear').value = appData.settings.fiscalYear;
-            }
-        }
-
-        function saveData() {
-            if (isLocalStorageAvailable()) {
-                localStorage.setItem('financialSystemData', JSON.stringify(appData));
-            }
-        }
-
-        // Export/Import Functions (for future use)
-        function exportData() {
-            const dataStr = JSON.stringify(appData, null, 2);
-            const dataBlob = new Blob([dataStr], {type: 'application/json'});
-            const url = URL.createObjectURL(dataBlob);
-            
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'financial_system_backup.json';
-            link.click();
-        }
-
-        function importData(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    try {
-                        appData = JSON.parse(e.target.result);
-                        saveData();
-                        alert('Data imported successfully!');
-                        updateDashboard();
-                        if (document.querySelector('.nav-link[data-page="customers"]').classList.contains('active')) {
-                            updateCustomersPage();
-                        }
-                    } catch (error) {
-                        alert('Error importing data: ' + error.message);
-                    }
-                };
-                reader.readAsText(file);
-            }
-        }
-    </script>
-</body>
-</html> : currency === 'EUR' ? '€' : '£';
-            
-            return symbol + Math.abs(amount).toLocaleString('en-US', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            });
-        }
-
-        function formatDate(date) {
-            return new Date(date).toLocaleDateString('en-US');
-        }
-
-        function formatPhone(phone) {
-            const cleaned = phone.replace(/\D/g, '');
-            const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
-            if (match) {
-                return '(' + match[1] + ') ' + match[2] + '-' + match[3];
-            }
-            return phone;
-        }
-        }
-
-        // Dashboard Functions
-        function updateDashboard() {
-            // Calculate financial metrics
-            const currentBalance = calculateCurrentBalance();
-            const monthlyIncome = calculateMonthlyIncome();
-            const monthlyExpenses = calculateMonthlyExpenses();
-            const netIncome = monthlyIncome - monthlyExpenses;
-
-            // Update stat cards
-            document.getElementById('currentBalance').textContent = formatCurrency(currentBalance);
-            document.getElementById('monthlyIncome').textContent = formatCurrency(monthlyIncome);
-            document.getElementById('monthlyExpenses').textContent = formatCurrency(monthlyExpenses);
-            document.getElementById('netIncome').textContent = formatCurrency(netIncome);
-
-            // Update charts
-            updateCharts();
-
-            // Update recent activities
-            updateRecentActivities();
-        }
-
-        function calculateCurrentBalance() {
-            // Demo calculation - replace with real data
-            return 15750.50;
-        }
-
-        function calculateMonthlyIncome() {
-            // Demo calculation - replace with real data
-            return 8500.00;
-        }
-
-        function calculateMonthlyExpenses() {
-            // Demo calculation - replace with real data
-            return 6200.00;
-        }
-
-        function updateCharts() {
-            // Revenue vs Expenses Chart
-            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
-            new Chart(revenueCtx, {
-                type: 'line',
-                data: {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-                    datasets: [{
-                        label: 'Revenue',
-                        data: [7500, 8200, 7800, 8500, 9100, 8500],
-                        borderColor: '#27ae60',
-                        backgroundColor: 'rgba(39, 174, 96, 0.1)',
-                        tension: 0.4
-                    }, {
-                        label: 'Expenses',
-                        data: [5200, 5800, 5400, 6200, 6500, 6200],
-                        borderColor: '#e74c3c',
-                        backgroundColor: 'rgba(231, 76, 60, 0.1)',
-                        tension: 0.4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                callback: function(value) {
-                                    return '$' + value.toLocaleString();
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-
-            // Expense Categories Chart
-            const expenseCtx = document.getElementById('expenseChart').getContext('2d');
-            new Chart(expenseCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Rent', 'Utilities', 'Supplies', 'Marketing', 'Other'],
-                    datasets: [{
-                        data: [2500, 800, 1200, 1000, 700],
-                        backgroundColor: [
-                            '#3498db',
-                            '#e74c3c',
-                            '#f39c12',
-                            '#27ae60',
-                            '#9b59b6'
-                        ]
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                        }
-                    }
-                }
-            });
-        }
-
-        function updateRecentActivities() {
-            const activities = [
-                {
-                    type: 'income',
-                    title: 'Payment Received - ABC Corp',
-                    date: '06/01/2025',
-                    amount: 2500.00
-                },
-                {
-                    type: 'expense',
-                    title: 'Office Rent Payment',
-                    date: '05/31/2025',
-                    amount: -2500.00
-                },
-                {
-                    type: 'income',
-                    title: 'Invoice #1024 - XYZ LLC',
-                    date: '05/30/2025',
-                    amount: 1800.00
-                },
-                {
-                    type: 'expense',
-                    title: 'Utility Bill',
-                    date: '05/29/2025',
-                    amount: -350.00
-                },
-                {
-                    type: 'income',
-                    title: 'Consulting Services',
-                    date: '05/28/2025',
-                    amount: 1200.00
-                }
-            ];
-
-            const container = document.getElementById('recentActivities');
-            container.innerHTML = '';
-
-            activities.forEach(activity => {
-                const activityDiv = document.createElement('div');
-                activityDiv.className = 'activity-item';
-                
-                activityDiv.innerHTML = `
-                    <div class="activity-icon ${activity.type}">
-                        <i class="fas fa-${activity.type === 'income' ? 'arrow-up' : 'arrow-down'}"></i>
-                    </div>
-                    <div class="activity-info">
-                        <div class="activity-title">${activity.title}</div>
-                        <div class="activity-date">${activity.date}</div>
-                    </div>
-                    <div class="activity-amount ${activity.amount > 0 ? 'positive' : 'negative'}">
-                        ${formatCurrency(Math.abs(activity.amount))}
-                    </div>
-                `;
-                
-                container.appendChild(activityDiv);
-            });
-        }
-
-        // Settings
-        function saveSettings() {
-            appData.settings.companyName = document.getElementById('companyName').value;
-            appData.settings.currency = document.getElementById('currency').value;
-            appData.settings.fiscalYear = document.getElementById('fiscalYear').value;
-            
-            saveData();
-            alert('Settings saved successfully!');
-        }
-
-        // Data Management with fallback
-        function isLocalStorageAvailable() {
-            try {
-                const test = '__localStorage_test__';
-                localStorage.setItem(test, test);
-                localStorage.removeItem(test);
-                return true;
-            } catch(e) {
-                return false;
-            }
-        }
-
-        function loadData() {
-            if (isLocalStorageAvailable()) {
-                const saved = localStorage.getItem('financialSystemData');
-                if (saved) {
-                    appData = JSON.parse(saved);
-                }
-            }
-            
-            // Load settings into form
-            if (document.getElementById('companyName')) {
-                document.getElementById('companyName').value = appData.settings.companyName;
-                document.getElementById('currency').value = appData.settings.currency;
-                document.getElementById('fiscalYear').value = appData.settings.fiscalYear;
-            }
-        }
-
-        function saveData() {
-            if (isLocalStorageAvailable()) {
-                localStorage.setItem('financialSystemData', JSON.stringify(appData));
-            }
-            // In demo mode, data persists only during session
-        }
-
-        function formatCurrency(amount) {
-            const currency = appData.settings.currency || 'USD';
-            const symbol = currency === 'USD' ? '
-
-        function formatDate(date) {
-            // US format: MM/DD/YYYY
-            return new Date(date).toLocaleDateString('en-US');
-        }
-
-        function formatPhone(phone) {
-            // US format: (XXX) XXX-XXXX
-            const cleaned = phone.replace(/\D/g, '');
-            const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
-            if (match) {
-                return '(' + match[1] + ') ' + match[2] + '-' + match[3];
-            }
-            return phone;
-        }
-
-        // Export/Import Functions (for future use)
-        function exportData() {
-            const dataStr = JSON.stringify(appData, null, 2);
-            const dataBlob = new Blob([dataStr], {type: 'application/json'});
-            const url = URL.createObjectURL(dataBlob);
-            
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'financial_system_backup.json';
-            link.click();
-        }
-
-        function importData(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    try {
-                        appData = JSON.parse(e.target.result);
-                        saveData();
-                        alert('Data imported successfully!');
-                        updateDashboard();
-                    } catch (error) {
-                        alert('Error importing data: ' + error.message);
-                    }
-                };
-                reader.readAsText(file);
-            }
-        }
-    </script>
-</body>
-</html> : currency === 'EUR' ? '€' : '£';
-            
-            return symbol + Math.abs(amount).toLocaleString('en-US', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            });
-        }
-
-        function formatDate(date) {
-            // US format: MM/DD/YYYY
-            return new Date(date).toLocaleDateString('en-US');
-        }
-
-        function formatPhone(phone) {
-            // US format: (XXX) XXX-XXXX
-            const cleaned = phone.replace(/\D/g, '');
-            const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
-            if (match) {
-                return '(' + match[1] + ') ' + match[2] + '-' + match[3];
-            }
-            return phone;
-        }
-
-        // Export/Import Functions (for future use)
-        function exportData() {
-            const dataStr = JSON.stringify(appData, null, 2);
-            const dataBlob = new Blob([dataStr], {type: 'application/json'});
-            const url = URL.createObjectURL(dataBlob);
-            
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'financial_system_backup.json';
-            link.click();
-        }
-
-        function importData(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    try {
-                        appData = JSON.parse(e.target.result);
-                        saveData();
-                        alert('Data imported successfully!');
-                        updateDashboard();
-                    } catch (error) {
-                        alert('Error importing data: ' + error.message);
-                    }
-                };
-                reader.readAsText(file);
-            }
         }
     </script>
 </body>
